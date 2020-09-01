@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>eureka-service-8011</artifactId>
+    <artifactId>eureka-service-8012</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -73,7 +73,8 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <artifactId>spring-cloud-config-client</artifactId>
+            <version>${spring-cloud-config-client}</version>
         </dependency>
         <dependency>
             <groupId>cn.wjf.spring</groupId>

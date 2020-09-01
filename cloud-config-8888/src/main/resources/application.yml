@@ -1,0 +1,13 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config8888
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/1716416169/springcloud.git
+          username: 1716416169@qq.com
+          password: weijianfeng666
+          default-label: master

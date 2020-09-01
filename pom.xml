@@ -15,6 +15,8 @@
         <module>eureka-registry-8081</module>
         <module>api</module>
         <module>hystrix-dashboard-8001</module>
+        <module>cloud-config-8888</module>
+        <module>eureka-service-8012</module>
     </modules>
     <properties>
         <spring-boot-starter-test>2.3.3.RELEASE</spring-boot-starter-test>
@@ -35,6 +37,10 @@
         <spring-cloud-starter-netflix-hystrix>2.2.5.RELEASE</spring-cloud-starter-netflix-hystrix>
         <spring-cloud-starter-netflix-hystrix-dashboard>2.2.5.RELEASE</spring-cloud-starter-netflix-hystrix-dashboard>
         <spring-cloud-starter-netflix-ribbon>2.2.5.RELEASE</spring-cloud-starter-netflix-ribbon>
+        <spring-cloud-starter-config>2.2.5.RELEASE</spring-cloud-starter-config>
+        <spring-cloud-dependencies>Hoxton.SR7</spring-cloud-dependencies>
+        <spring-cloud-config-server>2.2.5.RELEASE</spring-cloud-config-server>
+        <spring-cloud-config-client>2.2.5.RELEASE</spring-cloud-config-client>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -122,7 +128,21 @@
                 <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
                 <version>${spring-cloud-starter-netflix-ribbon}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${spring-cloud-starter-config}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring-cloud-config-server}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-client</artifactId>
+                <version>${spring-cloud-config-client}</version>
+            </dependency>
 
 
 
@@ -141,7 +161,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR7</version>
+                <version>${spring-cloud-dependencies}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

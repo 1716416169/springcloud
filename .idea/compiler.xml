@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api" />
+        <module name="cloud-config-8888" />
         <module name="eureka-client-8021" />
         <module name="eureka-registry-8081" />
         <module name="eureka-registry-8082" />
         <module name="eureka-service-8011" />
+        <module name="eureka-service-8012" />
         <module name="hystrix-dashboard-8001" />
       </profile>
     </annotationProcessing>
