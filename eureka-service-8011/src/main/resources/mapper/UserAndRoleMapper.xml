@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wjf.spring.dao.UserAndRoleMapper">
+    <select id="selectUserById" resultMap="UserAndRole">
+        select * from user u,role r
+        where u.id = r.role_user
+        and u.id = #{id}
+        limit #{first},#{last}
+    </select>
+    <resultMap id="UserAndRole" type="entity.User">
+        <result column="id" property="id"></result>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <collection property="role" ofType="entity.Role">
+            <result column="id" property="id"></result>
+            <result column="role" property="role"></result>
+        </collection>
+    </resultMap>
+
+
+    <insert id="insertUser" parameterType="entity.User">
+        insert into user (username,password) values (#{username},#{password})
+    </insert>
+    <insert id="insertRole" parameterType="entity.Role">
+        insert into role (role,role_user) values (#{role},#{role_user})
+    </insert>
+
+
+    <update id="updateUserById" parameterType="entity.User">
+        update user set username=#{username},password=#{password}
+        where id=#{id}
+    </update>
+
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from user
+        where id=#{id}
+    </delete>
+    <delete id="deleteRoleById" parameterType="int">
+        delete from role
+        where role_user=#{id}
+    </delete>
+
+</mapper>

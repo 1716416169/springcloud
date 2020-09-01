@@ -1,0 +1,15 @@
+server:
+  port: 8021
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://eureka2:8082/eureka/,http://eureka1:8081/eureka/
+    register-with-eureka: false
+    fetch-registry: true
+
+spring:
+  application:
+    name: eureka-client-8021
+

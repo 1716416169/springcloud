@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api" />
+        <module name="eureka-client-8021" />
+        <module name="eureka-registry-8081" />
+        <module name="eureka-registry-8082" />
+        <module name="eureka-service-8011" />
+        <module name="hystrix-dashboard-8001" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-registry-808" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
