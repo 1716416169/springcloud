@@ -1,4 +1,10 @@
 spring:
+  profiles:
+    active: runtime
   cloud:
     config:
-      uri: http://127.0.0.1:8888
+      uri: http://localhost:8888
+      label: master
+      profile: runtime
+      name: eureka-service-8012
+

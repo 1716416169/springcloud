@@ -9,19 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-config-8888</artifactId>
+    <artifactId>zuul-8401</artifactId>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <version>${spring-boot-starter-web}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -29,6 +31,7 @@
             <version>${spring-cloud-starter-netflix-eureka-client}</version>
         </dependency>
     </dependencies>
+
 
 
 </project>

@@ -1,16 +1,22 @@
 server:
-  port: 8021
+  port: 8022
 eureka:
   instance:
     hostname: localhost
-    instance-id: eureka-client-8021
+    instance-id: eureka-client-8022
   client:
     service-url:
       defaultZone: http://eureka2:8082/eureka/,http://eureka1:8081/eureka/
     register-with-eureka: true
     fetch-registry: true
 
+
+
 spring:
   application:
     name: eureka-client
-
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    connection-timeout: 2000

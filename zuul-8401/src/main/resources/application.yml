@@ -1,0 +1,26 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: zuul-8401
+
+
+zuul:
+  ignored-services: "*"
+  routes:
+    EUREKA-SERVICE: /wjf666/** #为EUREKA-SERVICE这个服务路径起别名
+    EUREKA-CLIENT: /go/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:8081/eureka/,http://eureka2:8082/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    instance-id: zuul-8401
+    prefer-ip-address: false
+
+
+

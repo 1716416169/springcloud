@@ -5,7 +5,7 @@ spring:
     name: registry8082
 eureka:
   instance:
-    hostname: eureka2
+    hostname: eureka2 #Eureka服务端的实例名称
   client:
     register-with-eureka: false
     fetch-registry: false

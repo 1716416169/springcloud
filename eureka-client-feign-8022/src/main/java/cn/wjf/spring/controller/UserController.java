@@ -1,5 +1,6 @@
 package cn.wjf.spring.controller;
 
+import cn.wjf.spring.service.FeignInterface;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -16,22 +17,17 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    @Autowired
-    RestTemplate restTemplate;
 
     @Autowired
     EurekaDiscoveryClient eurekaDiscoveryClient;
 
+    @Autowired
+    FeignInterface feignInterface;
+
     @GetMapping("/client/GET/{id}/{first}/{last}")
     public User selectUserById(@PathVariable("id") int id, @PathVariable("first") int first, @PathVariable("last") int last){
-        HashMap<String, Integer> stringStringHashMap = new HashMap<String, Integer>();
-        stringStringHashMap.put("id",id);
-        stringStringHashMap.put("first",first);
-        stringStringHashMap.put("last",last);
-        //User eureka_service_8011 = restTemplate.getForObject("http://EUREKA-SERVICE-8011/wjf/User/GET", User.class, stringStringHashMap);
-        User eureka_service_8011 = restTemplate.getForObject("http://EUREKA-SERVICE/wjf/User/GET/"+id+"/"+first+"/"+last, User.class );
-        System.out.println(eureka_service_8011.toString());
-        return eureka_service_8011;
+        User user = feignInterface.selectUserById(id, first, last);
+        return user;
     }
 
     @GetMapping("/getService")

@@ -1,13 +1,23 @@
 server:
   port: 8888
+
 spring:
   application:
-    name: config8888
+    name: spring-cloud-config
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/1716416169/springcloud.git
-          username: 1716416169@qq.com
-          password: weijianfeng666
-          default-label: master
+          uri: https://github.com/1716416169/spring-cloud-config.git
+#          uri: https://github.com/1716416169/spring-cloud-config.git
+#          username: 1716416169@qq.com
+#          password: weijianfeng666
+#          default-label: master
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka2:8082/eureka/,http://eureka1:8081/eureka/
+  instance:
+    instance-id: config-8888
