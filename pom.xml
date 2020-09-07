@@ -44,6 +44,9 @@
         <spring-cloud-config-client>2.2.5.RELEASE</spring-cloud-config-client>
         <spring-cloud-starter-netflix-zuul>2.2.5.RELEASE</spring-cloud-starter-netflix-zuul>
         <spring-cloud-starter-openfeign>2.2.5.RELEASE</spring-cloud-starter-openfeign>
+        <elasticsearch-rest-high-level-client>7.9.1</elasticsearch-rest-high-level-client>
+        <spring-boot-starter-data-elasticsearch>2.3.3.RELEASE</spring-boot-starter-data-elasticsearch>
+        <fastjson>1.2.73</fastjson>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -51,12 +54,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring-boot-starter-test}</version>
-                <exclusions>
+<!--                <exclusions>
                     <exclusion>
                         <groupId>org.junit.vintage</groupId>
                         <artifactId>junit-vintage-engine</artifactId>
                     </exclusion>
-                </exclusions>
+                </exclusions>-->
             </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
@@ -150,6 +153,28 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud-starter-openfeign}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>7.6.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch-rest-high-level-client}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${spring-boot-starter-data-elasticsearch}</version>
+            </dependency>
+
+            <!--json字符串和json对象相互转换-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson}</version>
             </dependency>
 
 

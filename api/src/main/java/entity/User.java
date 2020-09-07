@@ -1,6 +1,9 @@
 package entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -15,11 +18,24 @@ CREATE TABLE user
 
 */
 @Data
+/*@AllArgsConstructor
+@NoArgsConstructor*/
+@ToString
 public class User {
     private int id;
     private String username;
     private String password;
     private List<Role> role;
+
+    public User(int id, String username, String password, List<Role> role) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User() {
+    }
 
     public void setUsername(String username) {
         this.username = username;

@@ -13,20 +13,23 @@ spring:
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
-
   jpa:
     hibernate:
       ddl-auto: update
   application:
     name: eureka-service #服务名不可用下划线连接
+
 mybatis:
   type-aliases-package: cn.wjf.spring.entity
   mapper-locations: classpath:mapper/*.xml
+
 logging:
   level:
     root: INFO
+
 server:
   port: 8011
+
 eureka:
   client:
     service-url:
@@ -37,6 +40,7 @@ eureka:
 #    hostname: localhost  #必须要有，dashboard不识别公网ip对应的域名，只能识别本地host文件包含的域名
     prefer-ip-address: false #是否展示ip地址
     instance-id: service-8011
+
 management:
   endpoints:
     web:

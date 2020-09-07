@@ -1,6 +1,10 @@
 package cn.wjf.spring.configure;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,4 +37,9 @@ public class ApplicationConfigure {
                 .build();
     }
 
+
+    @Bean
+    public RestHighLevelClient restHighLevelClient(){
+        return new RestHighLevelClient(RestClient.builder(new HttpHost("localhost",9200,"http")));
+    }
 }
