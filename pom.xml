@@ -47,6 +47,7 @@
         <elasticsearch-rest-high-level-client>7.9.1</elasticsearch-rest-high-level-client>
         <spring-boot-starter-data-elasticsearch>2.3.3.RELEASE</spring-boot-starter-data-elasticsearch>
         <fastjson>1.2.73</fastjson>
+        <minio>3.0.10</minio>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -169,7 +170,12 @@
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
                 <version>${spring-boot-starter-data-elasticsearch}</version>
             </dependency>
-
+            <!--对象服务器-->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio}</version>
+            </dependency>
             <!--json字符串和json对象相互转换-->
             <dependency>
                 <groupId>com.alibaba</groupId>

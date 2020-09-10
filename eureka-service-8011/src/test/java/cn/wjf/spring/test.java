@@ -15,6 +15,8 @@ import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
@@ -25,6 +27,11 @@ import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.MatchQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -160,5 +167,29 @@ public class test {
         System.out.println(bulk);
     }
 
+    // 查询
+    // SearchRequest 搜索请求
+    // SearchSourceBuilder 条件构造
+    // HighlightBuilder 构建高亮
+    // TermQueryBuilder 精确查询
+    // MatchAllQueryBuilder
+    // xxx QueryBuilder 对应我们刚才看到的命令！
+    @Test
+    public void test11() throws IOException {
+        SearchRequest searchRequest = new SearchRequest("wjf2");
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("username", "wjf2");
+        //HighlightBuilder highlighter = searchSourceBuilder.highlighter();
+       /* highlighter.preTags("<span style='color:red'>");
+        highlighter.postTags("</span>");
+        highlighter.field("username");*/
+        //searchSourceBuilder.highlighter(highlighter);
+        searchSourceBuilder.from(0);
+        searchSourceBuilder.size(3);
+        searchSourceBuilder.query(matchQueryBuilder);
+        searchRequest.source(searchSourceBuilder);
+        SearchResponse search = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+        System.out.println(search.getHits());
+    }
 
 }
