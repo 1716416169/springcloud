@@ -2,13 +2,14 @@ server:
   port: 8081
 spring:
   application:
-    name: registry8081
+    name: registry
 eureka:
   instance:
     hostname: eureka1 #Eureka服务端的实例名称
+    instance-id: registry-8081
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/,http://eureka2:8082/eureka/
+      defaultZone: http://eureka2:8082/eureka/ #http://${eureka.instance.hostname}:${server.port}/eureka/
 

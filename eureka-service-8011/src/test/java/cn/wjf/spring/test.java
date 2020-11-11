@@ -151,7 +151,7 @@ public class test {
         System.out.println(delete);
     }
 
-    // 特殊的，真的项目一般都会批量插入数据！
+    // 特殊的，真的项目一般都会批量插入数据
     @Test
     public void ten() throws IOException {
         BulkRequest bulkRequest = new BulkRequest();

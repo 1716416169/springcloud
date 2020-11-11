@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/springcloud?useSSL=true&setTimezone=GMT
+    url: jdbc:mysql://localhost:3306/springcloud?useSSL=true&setTimezone=GMT&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: weijianfeng666
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -37,7 +37,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: false
   instance:
-#    hostname: localhost  #必须要有，dashboard不识别公网ip对应的域名，只能识别本地host文件包含的域名
+    hostname: service1  #必须要有，dashboard不识别公网ip对应的域名，只能识别本地host文件包含的域名
     prefer-ip-address: false #是否展示ip地址
     instance-id: service-8011
 

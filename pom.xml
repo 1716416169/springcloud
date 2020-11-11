@@ -182,9 +182,6 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson}</version>
             </dependency>
-
-
-
             <!--spring boot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -193,7 +190,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!--spring cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>

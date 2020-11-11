@@ -11,7 +11,10 @@ import java.util.UUID;
 
 public class FileUpload {
     public HashMap<Object, Object> fileUpload(MultipartFile file) throws Exception {
-
+        if(file.isEmpty()){
+            System.out.println("未接收到文件");
+            return null;
+        }
         /*得到文件的原始名字*/
         String oldFileName = file.getOriginalFilename();
         /*截取到文件的后缀名*/
@@ -39,12 +42,11 @@ public class FileUpload {
         if (isExist) {
             System.out.println("桶已存在！！！");
         } else {
-            // 创建一个名为asiatrip的存储桶，用于存储照片的zip文件。
+         // 创建一个名为pic-one的存储桶，用于存储照片的zip文件。
             minioClient.makeBucket("pic-one");
         }
         // 使用putObject上传一个文件到存储桶中。
         minioClient.putObject("pic-one", newFileName+"", ""+dest);
-
         return null;
     }
 
